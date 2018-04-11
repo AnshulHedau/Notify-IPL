@@ -22,6 +22,15 @@ def index():
 	json_string = json.dumps(return_value)
 	return json_string
 
+# Score page
+@app.route("/score")
+
+def score():
+	return_value = {"message":"Scores here guys:)"}
+
+	json_string = json.dumps(return_value)
+
+	return json_string
 
 # Help page
 @app.route("/help")
