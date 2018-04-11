@@ -53,8 +53,7 @@ def score():
 	team_playing.append(team_name[team.index(scores[3])])
 
 	courses = {"scores": {"details" : scores,"teams" : team_playing}}
-	print
-	print(json.dumps(courses))
+	return json.dumps(courses)
 	
 
 # Help page
