@@ -9,6 +9,7 @@ from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 import requests
 import time
+import re
 from datetime import datetime, timedelta
 from autocorrect import spell
 from bs4 import BeautifulSoup
@@ -149,6 +150,36 @@ def data():
 	json_string = json.dumps(values)
 	
 	return json_string
+
+# Score page
+@app.route("/score",methods = ["GET"])
+
+def score():
+	page = requests.get("http://www.cricbuzz.com/cricket-match/live-scores")
+        soup = BeautifulSoup(page.content, 'html.parser')
+        productrow = soup.find(class_="cb-lv-main")
+        forecast_items = productrow.find(class_="cb-mtch-lst")
+
+        period = forecast_items.find(class_="cb-lv-scrs-well")
+        short_desc = period.find(class_="cb-lv-scrs-col").get_text()
+        print(short_desc)
+        list_item = short_desc.split('\xa0•\xa0')
+        list_name_score = list_item[0].split(' ')
+        scores = []
+        scores.append(list_name_score[0])
+        scores.append(list_name_score[1])
+        scores.append(re.search('\(([^)]+)', list_item[0]).group(1))
+        list_name_score = list_item[1].split(' ')
+        scores.append(list_name_score[1])
+        scores.append(list_name_score[2])
+        scores.append(re.search('\(([^)]+)', list_item[1]).group(1))
+        print(scores)
+	json_string = json.dumps(scores)
+	return json_string
+
+
+
+
 
 # Help page
 @app.route("/help")
