@@ -46,8 +46,16 @@ def score():
 	scores.append(list_name_score[2])
 	scores.append(re.search('\(([^)]+)', list_item[1]).group(1))
 
-	courses = {"courses": {"names" : scores}}
-	return json.dumps(courses)
+	team = ["CSK","DD","KXIP","KKR","MI","RR","RCB","SRH"]
+	team_name = ["Chennai Super Kings","Delhi Daredevils","Kings XI Punjab","Kolkata Knight Riders","Mumbai Indians","Rajasthan Royals","Royal Challengers Bangalore","Sunrisers Hyderabad"]
+	team_playing = []
+	team_playing.append(team_name[team.index(scores[0])])
+	team_playing.append(team_name[team.index(scores[3])])
+
+	courses = {"scores": {"details" : scores,"teams" : team_playing}}
+	print
+	print(json.dumps(courses))
+	
 
 # Help page
 @app.route("/help")
