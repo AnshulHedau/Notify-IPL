@@ -152,10 +152,11 @@ def data():
 	return json_string
 
 # Score page
-@app.route("/score",methods = ["GET"])
+@app.route("/score")
 
 def score():
-	page = requests.get("http://www.cricbuzz.com/cricket-match/live-scores")
+	'''
+        page = requests.get("http://www.cricbuzz.com/cricket-match/live-scores")
         soup = BeautifulSoup(page.content, 'html.parser')
         productrow = soup.find(class_="cb-lv-main")
         forecast_items = productrow.find(class_="cb-mtch-lst")
@@ -176,6 +177,8 @@ def score():
         print(scores)
 	json_string = json.dumps(scores)
 	return json_string
+	'''
+	print("True")
 
 
 
