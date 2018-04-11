@@ -29,7 +29,7 @@ def score():
 	return_value = {"message":"Scores here guys:)"}
 
 	json_string = json.dumps(return_value)
-
+	print("This is good maybe")
 	return json_string
 
 # Help page
