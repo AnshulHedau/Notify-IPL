@@ -4,18 +4,15 @@ from flask import Flask, request, redirect, url_for
 
 import json
 import pyrebase
-import nltk
-from nltk.corpus import stopwords
-from nltk.stem.porter import PorterStemmer
 import requests
 import time
 import re
 from datetime import datetime, timedelta
-from autocorrect import spell
 from bs4 import BeautifulSoup
 
 # Flask object creation
 app = Flask(__name__)
+
 
 # Index page
 @app.route("/")
@@ -24,18 +21,6 @@ def index():
 	return_value = {"message":"Welcome to the Edu-Buddy API!"}
 	json_string = json.dumps(return_value)
 	return json_string
-
-
-
-# Score page
-@app.route("/score")
-
-def score():
-	
-	return_value  = {"message":"Welcome to the SCORE API!"}
-        return return_value
-
-
 
 
 # Help page
