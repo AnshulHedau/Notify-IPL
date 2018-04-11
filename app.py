@@ -34,6 +34,7 @@ def score():
 
 	period = forecast_items.find(class_="cb-lv-scrs-well")
 	short_desc = period.find(class_="cb-lv-scrs-col").get_text()
+	short_cap = period.find(class_="cb-text-complete").get_text()
 	print(short_desc)
 	list_item = short_desc.split('\xa0•\xa0')
 	list_name_score = list_item[0].split(' ')
@@ -52,7 +53,7 @@ def score():
 	team_playing.append(team_name[team.index(scores[0])])
 	team_playing.append(team_name[team.index(scores[3])])
 
-	courses = {"scores": {"details" : scores,"teams" : team_playing}}
+	courses = {"scores": {"details" : scores,"teams" : team_playing,"desc" : short_cap}}
 	return json.dumps(courses)
 	
 
