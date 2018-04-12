@@ -27,35 +27,52 @@ def index():
 
 def score():
 	
+	team = ["CSK","DD","KXIP","KKR","MI","RR","RCB","SRH"]
+	team_name = ["Chennai Super Kings","Delhi Daredevils","Kings XI Punjab","Kolkata Knight Riders","Mumbai Indians","Rajasthan Royals","Royal Challengers Bangalore","Sunrisers Hyderabad"]    
+
 	page = requests.get("http://www.cricbuzz.com/cricket-match/live-scores")
 	soup = BeautifulSoup(page.content, 'html.parser')
 	productrow = soup.find(class_="cb-lv-main")
 	forecast_items = productrow.find(class_="cb-mtch-lst")
 
 	period = forecast_items.find(class_="cb-lv-scrs-well")
-	short_desc = period.find(class_="cb-lv-scrs-col").get_text()
-	short_cap = period.find(class_="cb-text-complete").get_text()
-	print(short_desc)
-	list_item = short_desc.split('\xa0•\xa0')
-	list_name_score = list_item[0].split(' ')
-	scores_team_1 = []
-	scores_team_1.append(list_name_score[0])
-	scores_team_1.append(list_name_score[1].split('/'))
-	scores_team_1.append(re.search('\(([^)]+)', list_item[0]).group(1))
+	if('cb-lv-scrs-col' in period):
 
-	scores_team_2 = []
-	list_name_score = list_item[1].split(' ')
-	scores_team_2.append(list_name_score[1])
-	scores_team_2.append(list_name_score[2].split('/'))
-	scores_team_2.append(re.search('\(([^)]+)', list_item[1]).group(1))
+		short_desc = period.find(class_="cb-lv-scrs-col").get_text()
+		short_cap = period.find(class_="cb-text-complete").get_text()
+		print(short_desc)
+		list_item = short_desc.split('\xa0•\xa0')
+		list_name_score = list_item[0].split(' ')
+		scores_team_1 = []
+		scores_team_1.append(list_name_score[0])
+		scores_team_1.append(list_name_score[1].split('/'))
+		scores_team_1.append(re.search('\(([^)]+)', list_item[0]).group(1))
 
-	team = ["CSK","DD","KXIP","KKR","MI","RR","RCB","SRH"]
-	team_name = ["Chennai Super Kings","Delhi Daredevils","Kings XI Punjab","Kolkata Knight Riders","Mumbai Indians","Rajasthan Royals","Royal Challengers Bangalore","Sunrisers Hyderabad"]
-	team_playing = []
-	team_playing.append(team_name[team.index(scores_team_1[0])])
-	team_playing.append(team_name[team.index(scores_team_2[0])])
+		scores_team_2 = []
+		list_name_score = list_item[1].split(' ')
+		scores_team_2.append(list_name_score[1])
+		scores_team_2.append(list_name_score[2].split('/'))
+		scores_team_2.append(re.search('\(([^)]+)', list_item[1]).group(1))
 
-	data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2}}
+		team_playing = []
+		team_playing.append(team_name[team.index(scores_team_1[0])])
+		team_playing.append(team_name[team.index(scores_team_2[0])])
+
+		data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2,"status" : 1}}
+	
+	
+	else:
+		teams_DATA = period.get('href')
+		team_temp = teams_DATA.split('/')
+		team_value = team_temp[3].split('-')
+		team_init = []
+		team_init.append(team_value[0].upper())
+		team_init.append(team_value[2].upper())
+		print(team_init)
+		team_playing = []
+		team_playing.append(team_name[team.index(team_init[0].upper())])
+		team_playing.append(team_name[team.index(team_init[1].upper())])
+		data = {"scores": {"teams" : team_playing,"initials" : team_init,"status" : 0}}
 
 	return(json.dumps(data))
 	
