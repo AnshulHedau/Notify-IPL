@@ -22,6 +22,20 @@ def index():
 	json_string = json.dumps(return_value)
 	return json_string
 
+# Notification page
+@app.route("/noti")
+
+def noti():
+	page = requests.get("http://www.cricbuzz.com/cricket-match/live-scores")
+	soup = BeautifulSoup(page.content, 'html.parser')
+	productrow = soup.find(class_="cb-lv-main")
+	forecast_items = productrow.find(class_="cb-mtch-lst")
+
+	period = forecast_items.find(class_="cb-lv-scrs-well")
+	short_desc = period.find(class_="cb-lv-scrs-col").get_text()
+	return(short_desc)
+
+
 # Score page
 @app.route("/score")
 
