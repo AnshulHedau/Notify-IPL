@@ -37,27 +37,27 @@ def score():
 	short_cap = period.find(class_="cb-text-complete").get_text()
 	print(short_desc)
 	list_item = short_desc.split('\xa0•\xa0')
-        list_name_score = list_item[0].split(' ')
-        scores_team_1 = []
-        scores_team_1.append(list_name_score[0])
-        scores_team_1.append(list_name_score[1].split('/'))
-        scores_team_1.append(re.search('\(([^)]+)', list_item[0]).group(1))
+	list_name_score = list_item[0].split(' ')
+	scores_team_1 = []
+	scores_team_1.append(list_name_score[0])
+	scores_team_1.append(list_name_score[1].split('/'))
+	scores_team_1.append(re.search('\(([^)]+)', list_item[0]).group(1))
 
-        scores_team_2 = []
-        list_name_score = list_item[1].split(' ')
-        scores_team_2.append(list_name_score[1])
-        scores_team_2.append(list_name_score[2].split('/'))
-        scores_team_2.append(re.search('\(([^)]+)', list_item[1]).group(1))
+	scores_team_2 = []
+	list_name_score = list_item[1].split(' ')
+	scores_team_2.append(list_name_score[1])
+	scores_team_2.append(list_name_score[2].split('/'))
+	scores_team_2.append(re.search('\(([^)]+)', list_item[1]).group(1))
 
-        team = ["CSK","DD","KXIP","KKR","MI","RR","RCB","SRH"]
-        team_name = ["Chennai Super Kings","Delhi Daredevils","Kings XI Punjab","Kolkata Knight Riders","Mumbai Indians","Rajasthan Royals","Royal Challengers Bangalore","Sunrisers Hyderabad"]
-        team_playing = []
-        team_playing.append(team_name[team.index(scores_team_1[0])])
-        team_playing.append(team_name[team.index(scores_team_2[0])])
+	team = ["CSK","DD","KXIP","KKR","MI","RR","RCB","SRH"]
+	team_name = ["Chennai Super Kings","Delhi Daredevils","Kings XI Punjab","Kolkata Knight Riders","Mumbai Indians","Rajasthan Royals","Royal Challengers Bangalore","Sunrisers Hyderabad"]
+	team_playing = []
+	team_playing.append(team_name[team.index(scores_team_1[0])])
+	team_playing.append(team_name[team.index(scores_team_2[0])])
 
-        data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2}}
+	data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2}}
 
-        return(json.dumps(data))
+	print(json.dumps(data))
 	
 
 # Help page
