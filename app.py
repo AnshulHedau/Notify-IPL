@@ -57,7 +57,7 @@ def score():
 
 	data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2}}
 
-	print(json.dumps(data))
+	return(json.dumps(data))
 	
 
 # Help page
