@@ -78,7 +78,7 @@ def score():
 			scores_team_2.append(" ")
 			scores_team_2.append(" ")
 			scores_team_2.append(" ")    
-			team_playing.append(team_name[team.index(list_name_score[0])])
+			team_playing.append(team_name[team.index(list_name_score[1])])
 			
 	
 	
