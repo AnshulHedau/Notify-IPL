@@ -70,8 +70,8 @@ def score():
 		list_name_score = list_item[1].split(' ')
 		print(len(list_name_score))
 		if(len(list_name_score)>4):
-			scores_team_2.append(list_name_score[0])
 			scores_team_2.append(list_name_score[1])
+			scores_team_2.append(list_name_score[2])
 			scores_team_2.append(re.search('\(([^)]+)',str(list_item[1])).group(1))    
 			team_playing.append(team_name[team.index(scores_team_2[0])])
 		else:
