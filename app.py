@@ -50,31 +50,30 @@ def score():
 	forecast_items = productrow.find(class_="cb-mtch-lst")
 
 	period = forecast_items.find(class_="cb-lv-scrs-well")
-	if('cb-lv-scrs-col' in period):
-
+	if('cb-lv-scrs-col' in str(period)):
 		short_desc = period.find(class_="cb-lv-scrs-col").get_text()
-		short_cap = period.find(class_="cb-text-complete").get_text()
-		print(short_desc)
+		short_cap = period.find(class_="cb-text-complete").get_text() 
+		#print(short_desc)
+		#print(short_cap)
 		list_item = short_desc.split('\xa0•\xa0')
 		list_name_score = list_item[0].split(' ')
 		scores_team_1 = []
 		scores_team_1.append(list_name_score[0])
-		scores_team_1.append(list_name_score[1].split('/'))
-		scores_team_1.append(re.search('\(([^)]+)', list_item[0]).group(1))
+		scores_team_1.append(list_name_score[1])
+		scores_team_1.append(re.search('\(([^)]+)', str(list_item[0])).group(1))
 
 		scores_team_2 = []
-		list_name_score = list_item[1].split(' ')
+		list_name_score = list_item[0].split(' ')
+		scores_team_2.append(list_name_score[0])
 		scores_team_2.append(list_name_score[1])
-		scores_team_2.append(list_name_score[2].split('/'))
-		scores_team_2.append(re.search('\(([^)]+)', list_item[1]).group(1))
+		scores_team_2.append(re.search('\(([^)]+)',str(list_item[1])).group(1))
 
 		team_playing = []
 		team_playing.append(team_name[team.index(scores_team_1[0])])
 		team_playing.append(team_name[team.index(scores_team_2[0])])
 
-		data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2,"status" : 1}}
-	
-	
+		data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2,"status" : 10,"desc" : short_cap}}
+
 	else:
 		teams_DATA = period.get('href')
 		team_temp = teams_DATA.split('/')
