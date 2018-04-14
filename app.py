@@ -75,7 +75,7 @@ def score():
 			scores_team_2.append(re.search('\(([^)]+)',str(list_item[1])).group(1))    
 			team_playing.append(team_name[team.index(scores_team_2[0])])
 		else:
-			scores_team_2.append(" ")
+			scores_team_2.append(list_name_score[1])
 			scores_team_2.append(" ")
 			scores_team_2.append(" ")    
 			team_playing.append(team_name[team.index(list_name_score[1])])
