@@ -78,7 +78,7 @@ def score():
 			team_image.append(images[team.index(scores_team_2[0])])
 		else:
 			scores_team_2.append(list_name_score[1])
-			scores_team_2.append(" ")
+			scores_team_2.append("0/0")
 			scores_team_2.append("Yet to bat")    
 			team_playing.append(team_name[team.index(list_name_score[1])])
 			team_image.append(images[team.index(scores_team_2[0])])
