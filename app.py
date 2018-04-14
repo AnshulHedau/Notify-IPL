@@ -91,6 +91,7 @@ def score():
 		team_temp = teams_DATA.split('/')
 		team_value = team_temp[3].split('-')
 		team_init = []
+		team_image = []
 		team_init.append(team_value[0].upper())
 		team_init.append(team_value[2].upper())
 		print(team_init)
@@ -102,12 +103,14 @@ def score():
 		scores_team_1.append(team_value[0].upper())
 		scores_team_1.append(" ")
 		scores_team_1.append(" ")
+		team_image.append(images[team.index(scores_team_1[0])])
 		
 		scores_team_2 = []
 		scores_team_2.append(team_value[0].upper())
 		scores_team_2.append(" ")
 		scores_team_2.append(" ")
-		data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2,"initials" : team_init,"status" : 0}}
+		team_image.append(images[team.index(scores_team_2[0])])
+		data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2,"images" :team_image,"initials" : team_init,"status" : 0}}
 
 	return(json.dumps(data))
 	
