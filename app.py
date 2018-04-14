@@ -18,7 +18,7 @@ app = Flask(__name__)
 @app.route("/")
 
 def index():
-	return_value = {"message":"Welcome to the Edu-Buddy API!"}
+	return_value = {"message":"Welcome to the Notify-IPL API!"}
 	json_string = json.dumps(return_value)
 	return json_string
 
