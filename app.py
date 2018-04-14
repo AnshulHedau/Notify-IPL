@@ -95,7 +95,17 @@ def score():
 		team_playing = []
 		team_playing.append(team_name[team.index(team_init[0].upper())])
 		team_playing.append(team_name[team.index(team_init[1].upper())])
-		data = {"scores": {"teams" : team_playing,"initials" : team_init,"status" : 0}}
+		
+		scores_team_1 = []
+		scores_team_1.append(team_value[0].upper())
+		scores_team_1.append(" ")
+		scores_team_1.append(" ")
+		
+		scores_team_2 = []
+		scores_team_2.append(team_value[0].upper())
+		scores_team_2.append(" ")
+		scores_team_2.append(" ")
+		data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2,"initials" : team_init,"status" : 0}}
 
 	return(json.dumps(data))
 	
