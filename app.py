@@ -77,7 +77,7 @@ def score():
 		else:
 			scores_team_2.append(list_name_score[1])
 			scores_team_2.append(" ")
-			scores_team_2.append(" ")    
+			scores_team_2.append("Yet to bat")    
 			team_playing.append(team_name[team.index(list_name_score[1])])
 			
 	
