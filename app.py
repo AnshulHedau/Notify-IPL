@@ -52,7 +52,7 @@ def score():
 	period = forecast_items.find(class_="cb-lv-scrs-well")
 	if('cb-lv-scrs-col' in str(period)):
 		short_desc = period.find(class_="cb-lv-scrs-col").get_text()
-		#short_cap = period.find(class_="cb-text-complete").get_text() 
+		short_cap = period.find(class_="cb-scr-wll-chvrn").contents[3].get_text() 
 		#print(short_desc)
 		#print(short_cap)
 		
@@ -84,7 +84,7 @@ def score():
 			team_image.append(images[team.index(scores_team_2[0])])
 	
 	
-		data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2,"images" :team_image,"status" : 10}}
+		data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2,"images" :team_image,"desc" :short_cap,"status" : 10}}
 
 	else:
 		teams_DATA = period.get('href')
