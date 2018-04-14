@@ -57,7 +57,7 @@ def score():
 		#print(short_cap)
 		
 		team_playing = []
-    		team_image = []
+		team_image = []
 		list_item = short_desc.split('\xa0•\xa0')
 		list_name_score = list_item[0].split(' ')
 		scores_team_1 = []
