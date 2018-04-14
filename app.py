@@ -106,7 +106,7 @@ def score():
 		team_image.append(images[team.index(scores_team_1[0])])
 		
 		scores_team_2 = []
-		scores_team_2.append(team_value[1].upper())
+		scores_team_2.append(team_value[2].upper())
 		scores_team_2.append(" ")
 		scores_team_2.append(" ")
 		team_image.append(images[team.index(scores_team_2[0])])
