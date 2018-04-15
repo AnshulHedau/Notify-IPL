@@ -41,6 +41,7 @@ def noti():
 
 def score():
 	
+	status = 0
 	team = ["CSK","DD","KXIP","KKR","MI","RR","RCB","SRH"]
 	team_name = ["Chennai Super Kings","Delhi Daredevils","Kings XI Punjab","Kolkata Knight Riders","Mumbai Indians","Rajasthan Royals","Royal Challengers Bangalore","Sunrisers Hyderabad"]    
 	images = ["https://iplstatic.s3.amazonaws.com/players/65x75/1.png","https://iplstatic.s3.amazonaws.com/players/210/84.png","https://iplstatic.s3.amazonaws.com/players/284/8.png","https://iplstatic.s3.amazonaws.com/players/284/102.png","https://iplstatic.s3.amazonaws.com/players/284/107.png","https://iplstatic.s3.amazonaws.com/players/284/135.png","https://iplstatic.s3.amazonaws.com/players/284/164.png","https://iplstatic.s3.amazonaws.com/players/284/440.png"]
@@ -76,15 +77,19 @@ def score():
 			scores_team_2.append(re.search('\(([^)]+)',str(list_item[1])).group(1))    
 			team_playing.append(team_name[team.index(scores_team_2[0])])
 			team_image.append(images[team.index(scores_team_2[0])])
+			status = 11
 		else:
 			scores_team_2.append(list_name_score[1])
 			scores_team_2.append("0/0")
 			scores_team_2.append("Yet to bat")    
 			team_playing.append(team_name[team.index(list_name_score[1])])
 			team_image.append(images[team.index(scores_team_2[0])])
+			status = 10
+			
+		if('cb-text-complete' in str(period)):
+			status = 100
 	
-	
-		data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2,"images" :team_image,"desc" :short_cap,"status" : 10}}
+		data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2,"images" :team_image,"desc" :short_cap,"status" : status}}
 
 	else:
 		teams_DATA = period.get('href')
@@ -110,7 +115,7 @@ def score():
 		scores_team_2.append(" ")
 		scores_team_2.append(" ")
 		team_image.append(images[team.index(scores_team_2[0])])
-		data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2,"images" :team_image,"initials" : team_init,"status" : 0}}
+		data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2,"images" :team_image,"initials" : team_init,"status" : sratus}}
 
 	return(json.dumps(data))
 	
