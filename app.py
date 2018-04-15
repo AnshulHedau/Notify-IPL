@@ -44,7 +44,7 @@ def score():
 	status = 0
 	team = ["CSK","DD","KXIP","KKR","MI","RR","RCB","SRH"]
 	team_name = ["Chennai Super Kings","Delhi Daredevils","Kings XI Punjab","Kolkata Knight Riders","Mumbai Indians","Rajasthan Royals","Royal Challengers Bangalore","Sunrisers Hyderabad"]    
-	images = ["https://iplstatic.s3.amazonaws.com/players/65x75/1.png","https://iplstatic.s3.amazonaws.com/players/210/84.png","https://iplstatic.s3.amazonaws.com/players/284/8.png","https://iplstatic.s3.amazonaws.com/players/284/102.png","https://iplstatic.s3.amazonaws.com/players/284/107.png","https://iplstatic.s3.amazonaws.com/players/284/135.png","https://iplstatic.s3.amazonaws.com/players/284/164.png","https://iplstatic.s3.amazonaws.com/players/284/440.png"]
+	images = ["https://iplstatic.s3.amazonaws.com/players/284/1.png","https://iplstatic.s3.amazonaws.com/players/210/84.png","https://iplstatic.s3.amazonaws.com/players/284/8.png","https://iplstatic.s3.amazonaws.com/players/284/102.png","https://iplstatic.s3.amazonaws.com/players/284/107.png","https://iplstatic.s3.amazonaws.com/players/284/135.png","https://iplstatic.s3.amazonaws.com/players/284/164.png","https://iplstatic.s3.amazonaws.com/players/284/440.png"]
 	page = requests.get("http://www.cricbuzz.com/cricket-match/live-scores")
 	soup = BeautifulSoup(page.content, 'html.parser')
 	productrow = soup.find(class_="cb-lv-main")
