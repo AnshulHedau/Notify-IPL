@@ -115,7 +115,7 @@ def score():
 		scores_team_2.append(" ")
 		scores_team_2.append(" ")
 		team_image.append(images[team.index(scores_team_2[0])])
-		data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2,"images" :team_image,"initials" : team_init,"status" : sratus}}
+		data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2,"images" :team_image,"initials" : team_init,"status" : status}}
 
 	return(json.dumps(data))
 	
