@@ -93,7 +93,7 @@ def score():
 
 	else:
 		teams_DATA = period.get('href')
-		short_cap = period.find(class_="cb-scr-wll-chvrn").contents[3].get_text() 
+		#short_cap = period.find(class_="cb-scr-wll-chvrn").contents[3].get_text() 
 		
 		team_temp = teams_DATA.split('/')
 		team_value = team_temp[3].split('-')
@@ -117,7 +117,7 @@ def score():
 		scores_team_2.append(" ")
 		scores_team_2.append(" ")
 		team_image.append(images[team.index(scores_team_2[0])])
-		data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2,"images" :team_image,"initials" : team_init,"desc" :short_cap,"status" : status}}
+		data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2,"images" :team_image,"initials" : team_init,"status" : status}}
 
 	return(json.dumps(data))
 	
