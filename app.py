@@ -49,7 +49,8 @@ def score():
 	soup = BeautifulSoup(page.content, 'html.parser')
 	productrow = soup.find(class_="cb-lv-main")
 	forecast_items = productrow.find(class_="cb-mtch-lst")
-
+	internal_page = "http://www.cricbuzz.com" + forecast_items.find('a')['href']
+	
 	period = forecast_items.find(class_="cb-lv-scrs-well")
 	if('cb-lv-scrs-col' in str(period)):
 		page = requests.get(internal_page)
