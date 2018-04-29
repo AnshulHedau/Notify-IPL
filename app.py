@@ -85,6 +85,24 @@ def score():
 			team_playing.append(team_name[team.index(scores_team_2[0])])
 			team_image.append(images[team.index(scores_team_2[0])])
 			status = 11
+			temp = soup.find(class_="cb-min-lv").contents[3].contents[1].get_text()
+			runs = temp.strip().replace(' |','').split(' ')
+			temp = soup.find(class_="cb-min-lv").contents[1].contents[0]
+			for j in range(1,len(temp.contents)):
+				temp2 = temp.contents[j]
+				temptext = len(temp2.contents)
+				for i in range(0,temptext):
+					batsman_data.append(temp2.contents[i].get_text())
+				if(len(temp.contents)==2):
+					batsman_data.append('Player Yet to come')
+			temp = soup.find(class_="cb-min-lv").contents[1].contents[1]
+			for j in range(1,len(temp.contents)):
+				temp2 = temp.contents[j]
+				temptext = len(temp2.contents)
+				for i in range(0,temptext):
+					bowler_data.append(temp2.contents[i].get_text())
+			data = {"scores": {"teams" : team_playing,"team1" : scores_team_1,"team2" : scores_team_2,"images" :team_image,"desc" :short_cap,"status" : status,"batsman" :batsman_data,"bowler":bowler_data,"recent":runs}}
+
 		else:
 			scores_team_2.append(list_name_score[1])
 			scores_team_2.append("0/0")
