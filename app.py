@@ -90,7 +90,7 @@ def score():
             status = 100
             data = {
                 "scores": {"teams": team_playing, "team1": scores_team_1, "team2": scores_team_2, "images": team_image,
-                           "desc": short_cap, "status": status,"batsman":[],"bowler":[],"runs":[]}}
+                           "desc": short_cap, "status": status,"batsman":["0","0","0","0","0","0"],"bowler":["0","0","0","0","0","0"],"runs":["0","0","0","0","0","0"]}}
         else:
             runs = []
             batsman_data = []
