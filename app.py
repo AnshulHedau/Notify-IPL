@@ -90,7 +90,7 @@ def score():
             status = 100
             data = {
                 "scores": {"teams": team_playing, "team1": scores_team_1, "team2": scores_team_2, "images": team_image,
-                           "desc": short_cap, "status": status}}
+                           "desc": short_cap, "status": status,"batsman":"","bowler":"","runs":""}}
         else:
             runs = []
             batsman_data = []
@@ -199,7 +199,7 @@ def help():
 # Error page
 @app.errorhandler(404)
 def page_not_found(e):
-    return json.dumps(data_repository["error"]), 404
+    return json.dumps("error"), 404
 
 
 if __name__ == "__main__":
