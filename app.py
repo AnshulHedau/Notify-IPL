@@ -138,7 +138,7 @@ def score():
                 data = {
                     "scores": {"teams": team_playing, "team1": scores_team_1, "team2": scores_team_2, "images": team_image,
                            "desc": short_cap, "status": status, "batsman": batsman_data, "bowler": bowler_data,
-                           "recent": runs[ov_ln-1]}}
+                           "recent": [runs[ov_ln-1]]}}
 
             else:
                 scores_team_2.append(list_name_score[1])
@@ -176,7 +176,7 @@ def score():
                 data = {
                     "scores": {"teams": team_playing, "team1": scores_team_1, "team2": scores_team_2, "images": team_image,
                            "desc": short_cap, "status": status, "batsman": batsman_data, "bowler": bowler_data,
-                           "recent": runs[ov_ln-1]}}
+                           "recent": [runs[ov_ln-1]]}}
 
 
 
