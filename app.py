@@ -93,7 +93,7 @@ def score():
             scores_team_2.append(re.search('\(([^)]+)', str(list_item[1])).group(1))
             team_playing.append(team_name[team.index(scores_team_2[0])])
             team_image.append(images[team.index(scores_team_2[0])])
-            status = 100
+            status = 101
             data = {
                 "scores": {"teams": team_playing, "team1": scores_team_1, "team2": scores_team_2, "images": team_image,
                            "desc": short_cap, "status": status,"batsman":["0","0","0","0","0","0"],"bowler":["0","0","0","0","0","0"],"runs":["0","0","0","0","0","0"]}}
@@ -114,11 +114,13 @@ def score():
                 temp = soup.find(class_="cb-min-lv").contents[1].contents[0]
                 for j in range(1, len(temp.contents)):
                     temp2 = temp.contents[j]
+                    batsman_temp= []
                     temptext = len(temp2.contents)
                     for i in range(0, temptext):
-                        batsman_data.append(temp2.contents[i].get_text())
+                        batsman_temp.append(temp2.contents[i].get_text())
                     if (len(temp.contents) == 2):
-                        batsman_data.append('Player Yet to come')
+                        batsman_temp.append('Player Yet to come')
+                    batsman_data.append(batsman_temp)
                 temp = soup.find(class_="cb-min-lv").contents[1].contents[1]
                 for j in range(1, len(temp.contents)):
                     temp2 = temp.contents[j]
@@ -142,11 +144,13 @@ def score():
                 temp = soup.find(class_="cb-min-lv").contents[1].contents[0]
                 for j in range(1, len(temp.contents)):
                     temp2 = temp.contents[j]
+                    batsman_temp= []
                     temptext = len(temp2.contents)
                     for i in range(0, temptext):
-                        batsman_data.append(temp2.contents[i].get_text())
+                        batsman_temp.append(temp2.contents[i].get_text())
                     if (len(temp.contents) == 2):
-                        batsman_data.append('Player Yet to come')
+                        batsman_temp.append('Player Yet to come')
+                    batsman_data.append(batsman_temp)
                 temp = soup.find(class_="cb-min-lv").contents[1].contents[1]
                 for j in range(1, len(temp.contents)):
                     temp2 = temp.contents[j]
