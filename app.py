@@ -149,10 +149,13 @@ def score():
                     for i in range(0, temptext):
                         batsman_temp.append(temp2.contents[i].get_text())
                     if (len(temp.contents) == 2):
-                        batsman_temp.append('Player Yet to come')
-                        for i in range(1,6):
+                        batsman_data.append(batsman_temp)
+                        batsman_temp = []
+                        for i in range(0,6):
                             batsman_temp.append('-')
-                    batsman_data.append(batsman_temp)
+                        batsman_data.append(batsman_temp)
+                    else:
+                        batsman_data.append(batsman_temp)
                 temp = soup.find(class_="cb-min-lv").contents[1].contents[1]
                 for j in range(1, len(temp.contents)):
                     temp2 = temp.contents[j]
