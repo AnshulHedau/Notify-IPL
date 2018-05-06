@@ -49,7 +49,7 @@ def score():
     team_name = ["Chennai Super Kings", "Delhi Daredevils", "Kings XI Punjab", "Kolkata Knight Riders",
                  "Mumbai Indians", "Rajasthan Royals", "Royal Challengers Bangalore", "Sunrisers Hyderabad"]
     images = ["https://iplstatic.s3.amazonaws.com/players/284/1.png",
-              "https://iplstatic.s3.amazonaws.com/players/210/84.png",
+              "https://iplstatic.s3.amazonaws.com/players/210/1563.png",
               "https://iplstatic.s3.amazonaws.com/players/284/8.png",
               "https://iplstatic.s3.amazonaws.com/players/284/102.png",
               "https://iplstatic.s3.amazonaws.com/players/284/107.png",
