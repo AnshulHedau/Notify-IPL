@@ -33,7 +33,7 @@ def test():
 def noti():
     page = requests.get("http://www.cricbuzz.com/cricket-match/live-scores")
     soup = BeautifulSoup(page.content, 'html.parser')
-    productrow = soup.find(class_="cb-lv-main")
+    productrow = soup.find(class_="cb-schdl").contents[4]
     forecast_items = productrow.find(class_="cb-mtch-lst")
 
     period = forecast_items.find(class_="cb-lv-scrs-well")
