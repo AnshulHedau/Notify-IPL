@@ -1,9 +1,7 @@
 # Initial setup
-import pyrebase as pyrebase
 from flask import Flask, request, redirect, url_for
 
 import json
-import pyrebase
 import requests
 import time
 import re
@@ -58,7 +56,7 @@ def score():
               "https://iplstatic.s3.amazonaws.com/players/284/440.png"]
     page = requests.get("http://www.cricbuzz.com/cricket-match/live-scores")
     soup = BeautifulSoup(page.content, 'html.parser')
-    productrow = soup.find(class_="cb-lv-main")
+    productrow = soup.find(class_="cb-schdl").contents[3]
     forecast_items = productrow.find(class_="cb-mtch-lst")
     internal_page = "http://www.cricbuzz.com" + forecast_items.find('a')['href']
 
@@ -172,7 +170,15 @@ def score():
                     temptext = len(temp2.contents)
                     for i in range(0, temptext):
                         bowler_temp.append(temp2.contents[i].get_text())
-                    bowler_data.append(bowler_temp)
+                    if (len(temp.contents) == 2):
+                        bowler_data.append(bowler_temp)
+                        bowler_temp = []
+                        for i in range(0,6):
+                            bowler_temp.append('-')
+                        bowler_data.append(bowler_temp)
+                    else:
+                        bowler_data.append(bowler_temp)
+                    
                 data = {
                     "scores": {"teams": team_playing, "team1": scores_team_1, "team2": scores_team_2, "images": team_image,
                            "desc": short_cap, "status": status, "batsman": batsman_data, "bowler": bowler_data,
