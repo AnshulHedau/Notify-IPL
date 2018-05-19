@@ -31,7 +31,7 @@ def test():
 def noti():
     page = requests.get("http://www.cricbuzz.com/cricket-match/live-scores")
     soup = BeautifulSoup(page.content, 'html.parser')
-    productrow = soup.find(class_="cb-schdl").contents[4]
+    productrow = soup.find(class_="cb-schdl").contents[2]
     forecast_items = productrow.find(class_="cb-mtch-lst")
 
     period = forecast_items.find(class_="cb-lv-scrs-well")
@@ -56,7 +56,11 @@ def score():
               "https://iplstatic.s3.amazonaws.com/players/284/440.png"]
     page = requests.get("http://www.cricbuzz.com/cricket-match/live-scores")
     soup = BeautifulSoup(page.content, 'html.parser')
+<<<<<<< HEAD
     productrow = soup.find(class_="cb-schdl").contents[3]
+=======
+    productrow = soup.find(class_="cb-schdl").contents[2]
+>>>>>>> 8657356fb6b8519abe0ebcad33d0c33701cca3ef
     forecast_items = productrow.find(class_="cb-mtch-lst")
     internal_page = "http://www.cricbuzz.com" + forecast_items.find('a')['href']
 
