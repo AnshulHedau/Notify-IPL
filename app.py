@@ -19,12 +19,6 @@ def index():
     json_string = json.dumps(return_value)
     return json_string
 
-# Test page
-@app.route("/test")
-def test():
-    return_value = {"scores": {"teams": ["Kings XI Punjab", "Mumbai Indians"], "team1": ["KXIP", "96/2", "12.2 Ovs"], "team2": ["MI", "0/0", "Yet to bat"], "images": ["https://iplstatic.s3.amazonaws.com/players/284/8.png", "https://iplstatic.s3.amazonaws.com/players/284/107.png"], "desc": "Mumbai Indians opt to bowl", "status": 10, "batsman": ["Karun Nair", "0", "0", "0", "0", "0.00", "Yuvraj Singh", "14", "14", "0", "1", "100.00"], "bowler": ["Krunal Pandya", "0.2", "0", "7", "0", "21.00", "Ben Cutting", "1", "0", "3", "1", "3.00"], "recent": [".", "1", "1", "L4", ".", ".", "1", "1", ".", "1", "4", "1", "1", "1", ".", "W", ".", "1", "6", "1"]}}
-    json_string = json.dumps(return_value)
-    return json_string
 
 # Notification page
 @app.route("/noti")
