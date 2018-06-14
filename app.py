@@ -48,8 +48,8 @@ def score():
               "https://iplstatic.s3.amazonaws.com/players/284/135.png",
               "https://iplstatic.s3.amazonaws.com/players/284/164.png",
               "https://iplstatic.s3.amazonaws.com/players/284/440.png",
-             "https://upload.wikimedia.org/wikipedia/en/thumb/8/8d/Cricket_India_Crest.svg/1200px-Cricket_India_Crest.svg.png",
-             "http://www.cricket.af/public/pictures/1500463538.png"]
+             "http://internationalplayers.s3.amazonaws.com/284/test/135.png",
+             "http://internationalplayers.s3.amazonaws.com/284/test/611.png"]
     page = requests.get("http://www.cricbuzz.com/cricket-match/live-scores")
     soup = BeautifulSoup(page.content, 'html.parser')
     productrow = soup.find(class_="cb-schdl").contents[2]
