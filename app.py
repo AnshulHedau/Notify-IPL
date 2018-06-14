@@ -37,9 +37,9 @@ def noti():
 @app.route("/score")
 def score():
     status = 0
-    team = ["CSK", "DD", "KXIP", "KKR", "MI", "RR", "RCB", "SRH"]
+    team = ["CSK", "DD", "KXIP", "KKR", "MI", "RR", "RCB", "SRH","IND","AFG"]
     team_name = ["Chennai Super Kings", "Delhi Daredevils", "Kings XI Punjab", "Kolkata Knight Riders",
-                 "Mumbai Indians", "Rajasthan Royals", "Royal Challengers Bangalore", "Sunrisers Hyderabad"]
+                 "Mumbai Indians", "Rajasthan Royals", "Royal Challengers Bangalore", "Sunrisers Hyderabad","India","Afganistan"]
     images = ["https://iplstatic.s3.amazonaws.com/players/284/1.png",
               "https://iplstatic.s3.amazonaws.com/players/210/1563.png",
               "https://iplstatic.s3.amazonaws.com/players/284/8.png",
@@ -47,7 +47,9 @@ def score():
               "https://iplstatic.s3.amazonaws.com/players/284/107.png",
               "https://iplstatic.s3.amazonaws.com/players/284/135.png",
               "https://iplstatic.s3.amazonaws.com/players/284/164.png",
-              "https://iplstatic.s3.amazonaws.com/players/284/440.png"]
+              "https://iplstatic.s3.amazonaws.com/players/284/440.png",
+             "https://upload.wikimedia.org/wikipedia/en/thumb/8/8d/Cricket_India_Crest.svg/1200px-Cricket_India_Crest.svg.png",
+             "http://www.cricket.af/public/pictures/1500463538.png"]
     page = requests.get("http://www.cricbuzz.com/cricket-match/live-scores")
     soup = BeautifulSoup(page.content, 'html.parser')
     productrow = soup.find(class_="cb-schdl").contents[2]
