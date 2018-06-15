@@ -70,7 +70,7 @@ def score():
         team_playing = []
         team_image = []
         list_item = short_desc.split('\xa0•\xa0')
-        list_name_score = list_item[0].split('(')
+        list_name_score = list_item[0].split(' ')
         scores_team_1 = []
         scores_team_1.append(list_name_score[0])
         scores_team_1.append(list_name_score[1])
