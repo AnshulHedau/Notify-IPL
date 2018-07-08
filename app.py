@@ -48,7 +48,7 @@ def score():
               "https://iplstatic.s3.amazonaws.com/players/284/135.png",
               "https://iplstatic.s3.amazonaws.com/players/284/164.png",
               "https://iplstatic.s3.amazonaws.com/players/284/440.png",
-             "http://internationalplayers.s3.amazonaws.com/284/test/135.png",
+             "http://internationalplayers.s3.amazonaws.com/284/164.png",
              "http://internationalplayers.s3.amazonaws.com/284/test/611.png",
              "http://internationalplayers.s3.amazonaws.com/284/353.png",
              "http://internationalplayers.s3.amazonaws.com/284/Photo-Missing.png",
