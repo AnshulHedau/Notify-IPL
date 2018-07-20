@@ -37,9 +37,9 @@ def noti():
 @app.route("/score")
 def score():
     status = 0
-    team = ["CSK", "DD", "KXIP", "KKR", "MI", "RR", "RCB", "SRH","IND","AFG","SL","WI","ENG"]
+    team = ["CSK", "DD", "KXIP", "KKR", "MI", "RR", "RCB", "SRH","IND","AFG","SL","WI","ENG","ZIM","PAK"]
     team_name = ["Chennai Super Kings", "Delhi Daredevils", "Kings XI Punjab", "Kolkata Knight Riders",
-                 "Mumbai Indians", "Rajasthan Royals", "Royal Challengers Bangalore", "Sunrisers Hyderabad","India","Afganistan","Sri Lanka","Windies","England"]
+                 "Mumbai Indians", "Rajasthan Royals", "Royal Challengers Bangalore", "Sunrisers Hyderabad","India","Afganistan","Sri Lanka","Windies","England","Zimbabwe","Pakistan"]
     images = ["https://iplstatic.s3.amazonaws.com/players/284/1.png",
               "https://iplstatic.s3.amazonaws.com/players/210/1563.png",
               "https://iplstatic.s3.amazonaws.com/players/284/8.png",
@@ -52,7 +52,9 @@ def score():
              "http://internationalplayers.s3.amazonaws.com/284/test/611.png",
              "http://internationalplayers.s3.amazonaws.com/284/353.png",
              "http://internationalplayers.s3.amazonaws.com/284/Photo-Missing.png",
-             "http://internationalplayers.s3.amazonaws.com/284/197.png"]
+             "http://internationalplayers.s3.amazonaws.com/284/197.png",
+              "http://internationalplayers.s3.amazonaws.com/284/535.png",
+             "http://internationalplayers.s3.amazonaws.com/284/846.png"]
     page = requests.get("http://www.cricbuzz.com/cricket-match/live-scores")
     soup = BeautifulSoup(page.content, 'html.parser')
     productrow = soup.find(class_="cb-schdl").contents[2]
