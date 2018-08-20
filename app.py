@@ -88,6 +88,7 @@ def score():
         scores_team_1.append(re.search('\(([^)]+)', str(list_item[0])).group(1))
         team_playing.append(team_name[team.index(scores_team_1[0])])
         team_image.append(images[team.index(scores_team_1[0])])
+        first_team_status = len(list_name_score)
 
         scores_team_2 = []
         list_name_score = list_item[1].split(' ')
@@ -107,10 +108,13 @@ def score():
             batsman_data = []
             bowler_data = []
             print(len(list_name_score))
-            if (len(list_name_score) > 4):
+            if (len(list_name_score) > 4 or first_team_status > 5):
                 scores_team_2.append(list_name_score[1])
                 scores_team_2.append(list_name_score[2])
-                scores_team_2.append(re.search('\(([^)]+)', str(list_item[1])).group(1))
+                if(len(list_name_score) < 4):
+                    scores_team_2.append("")
+                else:
+                    scores_team_2.append(re.search('\(([^)]+)', str(list_item[1])).group(1))
                 team_playing.append(team_name[team.index(scores_team_2[0])])
                 team_image.append(images[team.index(scores_team_2[0])])
                 status = 11
