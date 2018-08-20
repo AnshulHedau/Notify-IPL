@@ -79,8 +79,12 @@ def score():
         list_item = short_desc.split('\xa0•\xa0')
         list_name_score = list_item[0].split(' ')
         scores_team_1 = []
+        total_score = []
+   
+        for i in range(1,len(list_name_score)-3):
+            total_score.append(list_name_score[i])
         scores_team_1.append(list_name_score[0])
-        scores_team_1.append(list_name_score[1])
+        scores_team_1.append("".join(total_score))
         scores_team_1.append(re.search('\(([^)]+)', str(list_item[0])).group(1))
         team_playing.append(team_name[team.index(scores_team_1[0])])
         team_image.append(images[team.index(scores_team_1[0])])
