@@ -15,7 +15,7 @@ app = Flask(__name__)
 # Index page
 @app.route("/")
 def index():
-    return_value = {"message": "Welcome to the Notify-IPL API!"}
+    return_value = {"message": "Welcome to the Notify-IPL API 2019!"}
     json_string = json.dumps(return_value)
     return json_string
 
