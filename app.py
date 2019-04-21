@@ -53,6 +53,7 @@ def point():
 def noti():
     page = requests.get("http://www.cricbuzz.com/cricket-match/live-scores")
     soup = BeautifulSoup(page.content, 'html.parser')
+    print(soup)
     productrow = soup.find(class_="cb-schdl").contents[2]
     forecast_items = productrow.find(class_="cb-mtch-lst")
 
