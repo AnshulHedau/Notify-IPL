@@ -27,6 +27,7 @@ def point():
     page = requests.get("https://www.cricbuzz.com/cricket-series/2810/indian-premier-league-2019/points-table")
     soup = BeautifulSoup(page.content, 'html.parser')
     productrow = soup.find(class_="table")
+    print(productrow)
     team_details = productrow.find_all('tr')#1,18
     #print(team_details[18+17])
     point_table = {"list":[]}
