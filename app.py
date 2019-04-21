@@ -20,6 +20,33 @@ def index():
     return json_string
 
 
+
+# Index page
+@app.route("/point")
+def point():
+    page = requests.get("https://www.cricbuzz.com/cricket-series/2810/indian-premier-league-2019/points-table")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    productrow = soup.find(class_="table")
+    team_details = productrow.find_all('tr')#1,18
+    #print(team_details[18+17])
+    point_table = {"list":[]}
+    for i in range(8):
+        team_details = productrow.find_all('tr')[1+i*17]
+        x = {
+          "team": team_details.find_all('td')[0].text,
+          "match": team_details.find_all('td')[1].text,
+          "won": team_details.find_all('td')[2].text,
+          "lost": team_details.find_all('td')[3].text,
+          "tied": team_details.find_all('td')[4].text,
+          "NR": team_details.find_all('td')[5].text,
+          "points": team_details.find_all('td')[6].text,  
+          "NRR": team_details.find_all('td')[7].text,
+        }
+
+        point_table['list'].append({i:[x]})
+    y = json.dumps(point_table)
+    return y
+
 # Notification page
 @app.route("/noti")
 def noti():
